@@ -52,11 +52,22 @@
       <artifactId>logback-core</artifactId>
       <version>1.1.1</version>
     </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-access</artifactId>
+      <version>1.1.1</version>
+    </dependency>
     <!--实现slf4j接口并整合-->
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
       <version>1.1.1</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.logback-extensions/logback-ext-spring -->
+    <dependency>
+      <groupId>org.logback-extensions</groupId>
+      <artifactId>logback-ext-spring</artifactId>
+      <version>0.1.1</version>
     </dependency>
 
     <!--1.数据库相关依赖-->

@@ -2,6 +2,7 @@ package com.wnf.controller;
 
 import com.wnf.pojo.User;
 import com.wnf.service.UserService;
+import com.wnf.util.GlobalExceptionHandler;
 import com.wnf.util.UseServiceTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +21,7 @@ import java.util.List;
 //    例如：http://localhost:8080/user/allUser --》就访问了findAllUserDESC（）方法
 @Controller
 //@RequestMapping("/user")//Controller类继承BaseExceptionHandleAction这个类即可在产生异常时返回数据获取失败的异常类信息
-public class UserController{
+public class UserController extends GlobalExceptionHandler {
 
     //这里写的每个方法都要注释好是干什么的，有复杂的逻辑处理关系的也要注释好，便于别人读懂你的代码
     //PS:controller一般只处理获取数据，将数据传到service业务层，不做复杂的数据处理，复杂的数据处理交给service业务层

@@ -81,7 +81,7 @@ public class DruidLogTask {
         allResultJsonString = allResultJsonString.replaceAll("\\\\n", " ");
         myLogger.info("Druid save log , allResult==={}");
         myLogger.info(allResultJsonString);
-
+        myLogger.error("weburiJson=="+weburiJson);
 //        Syslog newLog = new Syslog();
 //        newLog.setLogType("druidLog");
 //        newLog.setLogBody(allResultJsonString);

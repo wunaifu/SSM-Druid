@@ -38,6 +38,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public Object handleException(Exception e) {
         logger.error(e.toString());  // 记录错误信息
+        logger.error(e.getMessage());
         String msg = e.getMessage();
         if (msg == null || msg.equals("")) {
             msg = "服务器出错";

@@ -43,6 +43,8 @@ public class UserController extends GlobalExceptionHandler {
         user.setUserInfo("个人简介"+phone);
         user.setHeadicon("icon001.png");
         user.setUserInfo("个人简介"+phone);
+        user.getAddress();
+        Integer.parseInt("dsfa");
         return userService.addUser(user);
     }
 

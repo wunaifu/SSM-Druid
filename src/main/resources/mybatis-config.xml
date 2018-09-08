@@ -19,6 +19,6 @@
         <setting name="logImpl" value="STDOUT_LOGGING"/>
         <setting name="logImpl" value="LOG4J"/>
         <setting name="logImpl" value="SLF4J"/>
-
+        <setting name="logPrefix" value="dao."/>
     </settings>
 </configuration>

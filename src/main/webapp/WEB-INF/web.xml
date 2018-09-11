@@ -43,6 +43,7 @@
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
+  <!-- 配置 Druid 监控filter -->
   <filter>
     <filter-name>DruidWebStatFilter</filter-name>
     <filter-class>com.alibaba.druid.support.http.WebStatFilter</filter-class>
@@ -97,5 +98,7 @@
     <url-pattern>/druid/*</url-pattern>
   </servlet-mapping>
 
-
+  <listener>
+    <listener-class>com.wnf.mqtt.SocketServiceLoader</listener-class>
+  </listener>
 </web-app>

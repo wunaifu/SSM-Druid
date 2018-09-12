@@ -1,5 +1,6 @@
 package com.wnf.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.wnf.pojo.User;
 import com.wnf.service.UserService;
 import com.wnf.util.UseServiceTest;
@@ -49,9 +50,9 @@ public class UserController{
 
     @ResponseBody//将返回的数据处理为json
     @RequestMapping(value = "/user/list")
-    public List<User> userList(String phone,HttpServletRequest request, HttpServletResponse response) {
+    public PageInfo userList(int page, int rows, HttpServletRequest request, HttpServletResponse response) {
 
-        return userService.userList();
+        return userService.userListPager(page,rows);
     }
 
     @ResponseBody//将返回的数据处理为json

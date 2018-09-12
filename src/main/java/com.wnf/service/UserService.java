@@ -1,5 +1,6 @@
 package com.wnf.service;
 
+import com.github.pagehelper.PageInfo;
 import com.wnf.pojo.User;
 
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
  */
 public interface UserService {
     String addUser(User user);
-
     List<User> userList();
+    PageInfo userListPager(int page, int rows);
     List<User> userList2(int pageNo,int pageSize,int startRow);
 }

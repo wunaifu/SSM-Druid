@@ -5,14 +5,14 @@ import javax.servlet.ServletContextListener;
 
 public class SocketServiceLoader implements ServletContextListener {
 
-    public static MyMQTTClient client;
+    //public static MyMQTTClient client;
     @Override
     public void contextDestroyed(ServletContextEvent arg0) {
-       client.start();
+        MyMQTTClient.start();
     }
 
     @Override
     public void contextInitialized(ServletContextEvent arg0) {
-        client.start();
+        MyMQTTClient.start();
     }
 }

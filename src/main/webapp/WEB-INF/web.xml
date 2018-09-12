@@ -98,7 +98,8 @@
     <url-pattern>/druid/*</url-pattern>
   </servlet-mapping>
 
-  <listener>
-    <listener-class>com.wnf.mqtt.SocketServiceLoader</listener-class>
-  </listener>
+  <!--启动mqtt-->
+  <!--<listener>-->
+    <!--<listener-class>com.wnf.mqtt.SocketServiceLoader</listener-class>-->
+  <!--</listener>-->
 </web-app>

@@ -37,6 +37,7 @@ public class MyMQTTClient {
 
                 public void connectionLost(Throwable cause) {
                     System.out.println("链接断开，请进行重连---------");
+                    //MyMQTTClient.start();
                     //链接断开，进行重连操作
 //                    try {
 //                        client.connect(options);

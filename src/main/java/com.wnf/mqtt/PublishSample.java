@@ -1,4 +1,4 @@
-package com.wnf.util;
+package com.wnf.mqtt;
 
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
@@ -10,18 +10,18 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
  *发布端
  */
 public class PublishSample {
-    public static void main(String[] args) {
 
-        String topic = "Ozone";
-        String content = "{'ozoneId':'1623808','param':'100006','userId':'2'}";
-        int qos = 1;
-        String broker = "tcp://113.106.8.199:61613";
-        String userName = "admin";
-        String password = "password";
-        String clientId = "pubClient";
-        // 内存存储
-        MemoryPersistence persistence = new MemoryPersistence();
+    String topic = "Ozone";
+    String content = "{'ozoneId':'1623808','param':'100006','userId':'2'}";
+    int qos = 1;
+    String broker = "tcp://113.106.8.199:61613";
+    String userName = "admin";
+    String password = "password";
+    String clientId = "pubClient";
+    // 内存存储
+    MemoryPersistence persistence = new MemoryPersistence();
 
+    public PublishSample(String topic,String msg) {
         try {
             // 创建客户端
             MqttClient sampleClient = new MqttClient(broker, clientId, persistence);
@@ -35,7 +35,7 @@ public class PublishSample {
             // 建立连接
             sampleClient.connect(connOpts);
             // 创建消息
-            MqttMessage message = new MqttMessage(content.getBytes());
+            MqttMessage message = new MqttMessage(msg.getBytes());
             // 设置消息的服务质量
             message.setQos(qos);
             // 发布消息
@@ -52,5 +52,11 @@ public class PublishSample {
             System.out.println("excep " + me);
             me.printStackTrace();
         }
+    }
+    public static void main(String[] args) {
+        String topic = "Ozone";
+        String content = "{'ozoneId':'1623808','param':'100006','userId':'2'}";
+        new PublishSample(topic,content);
+
     }
 }

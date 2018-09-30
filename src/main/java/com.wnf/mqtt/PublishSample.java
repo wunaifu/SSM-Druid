@@ -6,6 +6,8 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
+import java.util.Random;
+
 /**
  *发布端
  */
@@ -17,7 +19,7 @@ public class PublishSample {
     String broker = "tcp://113.106.8.199:61613";
     String userName = "admin";
     String password = "password";
-    String clientId = "pubClient";
+    String clientId = "pubClient"+new Random().nextInt(99);
     // 内存存储
     MemoryPersistence persistence = new MemoryPersistence();
 
@@ -54,7 +56,7 @@ public class PublishSample {
         }
     }
     public static void main(String[] args) {
-        String topic = "Ozone";
+        String topic = "MyTest123";
         String content = "{'ozoneId':'1623808','param':'100006','userId':'2'}";
         new PublishSample(topic,content);
 

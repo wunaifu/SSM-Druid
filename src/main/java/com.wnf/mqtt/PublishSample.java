@@ -15,8 +15,8 @@ public class PublishSample {
 
     String topic = "Ozone";
     String content = "{'ozoneId':'1623808','param':'100006','userId':'2'}";
-    int qos = 1;
-    String broker = "tcp://113.106.8.199:61613";
+    int qos = 0;
+    String broker = "tcp://61.142.254.49:61613";
     String userName = "admin";
     String password = "password";
     String clientId = "pubClient"+new Random().nextInt(99);

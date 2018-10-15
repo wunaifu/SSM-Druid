@@ -16,7 +16,7 @@ public class PublishSample {
     String topic = "Ozone";
     String content = "{'ozoneId':'1623808','param':'100006','userId':'2'}";
     int qos = 0;
-    String broker = "tcp://61.142.254.49:61613";
+    String broker = "tcp://113.106.8.199:61613";
     String userName = "admin";
     String password = "password";
     String clientId = "pubClient"+new Random().nextInt(99);
@@ -58,7 +58,7 @@ public class PublishSample {
     public static void main(String[] args) {
         String topic = "MyTest123";
         String content = "{'ozoneId':'1623808','param':'100006','userId':'2'}";
-        new PublishSample(topic,content);
+        new PublishSample(topic,"nihao");
 
     }
 }

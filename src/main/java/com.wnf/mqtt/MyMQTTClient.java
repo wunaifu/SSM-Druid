@@ -39,26 +39,50 @@ public class MyMQTTClient {
 
                 public void connectionLost(Throwable cause) {
                     System.out.println("链接断开，请进行重连---------");
+                    MyMQTTClient myMQTTClient=new MyMQTTClient();
                     try {
-                        //判断拦截状态，这里注意一下，如果没有这个判断，是非常坑的
-                        if (!client.isConnected()) {
-                            client.close();
-                            //client.connect(options);
-                            MyMQTTClient.start();
-                            System.out.println("连接成功");
-                        }else {//这里的逻辑是如果连接成功就重新连接
-                            client.disconnect();
-                            client.close();
-                            //client.connect(options);
-                            MyMQTTClient.start();
-                            System.out.println("连接成功");
+                        while (true) {
+                            //判断拦截状态，这里注意一下，如果没有这个判断，是非常坑的
+                            if (!client.isConnected()) {
+                                client.close();
+                                //client.connect(options);
+                                myMQTTClient.start();
+                                System.out.println("关闭再重新连接");
+                            } else {//这里的逻辑是如果连接成功就重新连接
+                                client.disconnect();
+                                client.close();
+                                //client.connect(options);
+                                myMQTTClient.start();
+                                System.out.println("断开再重新连接");
+                            }
+                            if (client.isConnected()) {
+                                System.out.println("连接成功");
+                                break;
+                            }
                         }
-                        client.disconnect();
-                        client.connect(options);
-                        System.out.println("连接成功");
                     } catch (MqttException e) {
                         e.printStackTrace();
                     }
+//                    try {
+//                        //判断拦截状态，这里注意一下，如果没有这个判断，是非常坑的
+//                        if (!client.isConnected()) {
+//                            client.close();
+//                            //client.connect(options);
+//                            MyMQTTClient.start();
+//                            System.out.println("连接成功");
+//                        }else {//这里的逻辑是如果连接成功就重新连接
+//                            client.disconnect();
+//                            client.close();
+//                            //client.connect(options);
+//                            MyMQTTClient.start();
+//                            System.out.println("连接成功");
+//                        }
+//                        client.disconnect();
+//                        client.connect(options);
+//                        System.out.println("连接成功");
+//                    } catch (MqttException e) {
+//                        e.printStackTrace();
+//                    }
                 }
 
                 public void messageArrived(String topic, MqttMessage message) throws Exception {

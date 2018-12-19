@@ -56,7 +56,7 @@ public class PublishSample {
         }
     }
     public static void main(String[] args) {
-        String topic = "MyTest123";
+        String topic = "MyTest123/234234/h";
         String content = "{'ozoneId':'1623808','param':'100006','userId':'2'}";
         new PublishSample(topic,"nihao");
 

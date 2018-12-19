@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class MyMQTTClient {
 
-    public final String HOST = "tcp://113.106.8.199:61613";//MQTT服务端IP以及连接端口
+    public final String HOST = "tcp://127.0.0.1:61613";//MQTT服务端IP以及连接端口
     public final String TOPIC = "MyTest123/+/h";//订阅主题
     private final String clientid = "serverTest"+new Random().nextInt(99);//客户端ID
     private MqttClient client;

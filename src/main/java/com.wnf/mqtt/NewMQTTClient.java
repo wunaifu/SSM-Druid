@@ -10,7 +10,7 @@ import javax.annotation.PostConstruct;
 import java.util.Random;
 
 public class NewMQTTClient {
-    public static final String HOST = "tcp://61.142.254.49:61613";//MQTT服务端IP以及连接端口
+    public static final String HOST = "tcp://127.0.0.1:61613";//MQTT服务端IP以及连接端口
     public static final String TOPIC = "MyTest123";//订阅主题
     private static final String clientId = "server"+new Random().nextInt(99);//客户端ID
     private static MqttClient client;

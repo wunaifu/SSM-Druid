@@ -197,7 +197,9 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 ad10e4bc5c6a        mysql               "docker-entrypoint.sh"   4 seconds ago       Up 2 seconds        0.0.0.0:3306->3306/tcp   mysql02
 ```
 
+进入mysql安装目录下
 
+docker exec -it mysql bash
 
 几个其他的高级操作
 

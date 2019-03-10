@@ -8,8 +8,8 @@ import java.util.Date;
 
 public class MyMQTTClient {
 
-    public static final String HOST = "tcp://113.106.8.199:61613";//MQTT服务端IP以及连接端口
-    public static final String TOPIC = "Ozone";//订阅主题
+    public static final String HOST = "tcp://61.142.254.49:61613";//MQTT服务端IP以及连接端口
+    public static final String TOPIC = "#";//订阅主题
     private static final String clientid = "1623808";//客户端ID
     private static MqttClient client;
     private static MqttConnectOptions options;
@@ -60,34 +60,34 @@ public class MyMQTTClient {
 //                    message1.setQos(qos);
 //                    // 发布消息
 //                    client.publish(topic, message1);
-                    String receiveString = new String(message.getPayload()).trim();
-                    String[] handledString = receiveString.split(",");
-
-                    if (Util.getJSONType(receiveString)) {
-                        //获取app的开关指令，发给硬件
-                        //获取app的开关指令，发给硬件
-                        System.out.println("收到App开关指令，发送给硬件");
-                        // 创建消息
-                        MqttMessage message1 = new MqttMessage("100006".getBytes());
-                        // 设置消息的服务质量
-                        message1.setQos(1);
-                        // 发布消息
-                        client.publish("1623808", message1);
-
-                    } else if (receiveString.contains("OK")) {
-                        //获取硬件回发的OK，更改相应开关状态
-                        System.out.println("获取硬件回发的OK，更改相应开关状态");
-                        for (String x : handledString) {
-                            System.out.println(x);
-                        }
-                    } else if (handledString.length > 1) {//获取电压电流数据，更新数据库电压电流信息
-                        System.out.println("获取硬件回发电流数据，更新数据库电压电流信息");
-                        for (String x : handledString) {
-                            System.out.println(x);
-                        }
-                    } else {
-                        System.out.println("输出信息不对");
-                    }
+//                    String receiveString = new String(message.getPayload()).trim();
+//                    String[] handledString = receiveString.split(",");
+//
+//                    if (Util.getJSONType(receiveString)) {
+//                        //获取app的开关指令，发给硬件
+//                        //获取app的开关指令，发给硬件
+//                        System.out.println("收到App开关指令，发送给硬件");
+//                        // 创建消息
+//                        MqttMessage message1 = new MqttMessage("100006".getBytes());
+//                        // 设置消息的服务质量
+//                        message1.setQos(1);
+//                        // 发布消息
+//                        client.publish("1623808", message1);
+//
+//                    } else if (receiveString.contains("OK")) {
+//                        //获取硬件回发的OK，更改相应开关状态
+//                        System.out.println("获取硬件回发的OK，更改相应开关状态");
+//                        for (String x : handledString) {
+//                            System.out.println(x);
+//                        }
+//                    } else if (handledString.length > 1) {//获取电压电流数据，更新数据库电压电流信息
+//                        System.out.println("获取硬件回发电流数据，更新数据库电压电流信息");
+//                        for (String x : handledString) {
+//                            System.out.println(x);
+//                        }
+//                    } else {
+//                        System.out.println("输出信息不对");
+//                    }
                     System.out.println("************************************* 此次接收信息结束 *****************************************");
                 }
 
@@ -105,9 +105,9 @@ public class MyMQTTClient {
         }
     }
 
-//    public static void main(String[] args) throws MqttException {
-//        MyMQTTClient client1 = new MyMQTTClient();
-//        client1.start();
-//    }
+    public static void main(String[] args) throws MqttException {
+        MyMQTTClient client1 = new MyMQTTClient();
+        client1.start();
+    }
 
 }
